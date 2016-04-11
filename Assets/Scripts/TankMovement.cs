@@ -5,6 +5,8 @@ public class TankMovement : MonoBehaviour {
 
     public float speed = 5;
     public float angularSpeed = 30;
+    public float tankNum = 1;
+
     private Rigidbody rigidbody;
     // Use this for initialization
 	void Start () {
@@ -12,10 +14,10 @@ public class TankMovement : MonoBehaviour {
 	}
 
     void FixedUpdate() {
-        float v = Input.GetAxis("Vertical");
+        float v = Input.GetAxis("VerticalPlayer" + tankNum);
         rigidbody.velocity = transform.forward * v * speed;
 
-        float h = Input.GetAxis("Horizontal");
+        float h = Input.GetAxis("HorizontalPlayer" + tankNum);
         rigidbody.angularVelocity = transform.up * h * angularSpeed;
     }
 }
